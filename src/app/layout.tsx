@@ -18,10 +18,28 @@ export const metadata: Metadata = {
   title: "Zealous Digital Solutions | ESTD 2016",
   description: "Full-service digital solutions to enhance your online presence. From website design and targeted Meta and Google Ads to SEO, mobile optimization, and conversion rate optimization.",
   keywords: ["digital marketing", "SEO", "web design", "PPC", "Google Ads", "Meta Ads"],
+  authors: [{ name: "Zealous Digital Solutions" }],
+  creator: "Zealous Digital",
+  publisher: "Zealous Digital Solutions",
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Zealous Digital Solutions | ESTD 2016",
     description: "Full-service digital solutions to enhance your online presence.",
     type: "website",
+    locale: "en_US",
+    url: "https://zealousdigital.com",
+    siteName: "Zealous Digital",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zealous Digital Solutions | ESTD 2016",
+    description: "Full-service digital solutions to enhance your online presence.",
+    creator: "@zealousdigital",
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
   },
 };
 
