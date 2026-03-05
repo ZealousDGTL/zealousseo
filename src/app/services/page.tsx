@@ -88,16 +88,32 @@ const services = [
 ];
 
 export default function ServicesPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Search Engine Optimization" },
+      { "@type": "ListItem", position: 2, name: "Web Design & Development" },
+      { "@type": "ListItem", position: 3, name: "PPC Advertising" },
+      { "@type": "ListItem", position: 4, name: "Email Marketing" },
+      { "@type": "ListItem", position: 5, name: "Social Media Marketing" },
+      { "@type": "ListItem", position: 6, name: "Analytics & Reporting" },
+    ],
+  };
+
   return (
-    <div className="bg-black text-white">
+    <div className="bg-white text-zinc-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
-      <section className="relative py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-black to-black" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our <span className="text-indigo-500">Services</span>
+      <section className="py-24 bg-zinc-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-zinc-900 mb-6">
+            Our <span className="text-orange-500">Services</span>
           </h1>
-          <p className="text-xl text-zinc-400">
+          <p className="text-xl text-zinc-500">
             Comprehensive digital solutions tailored to your business needs. 
             From strategy to execution, we've got you covered.
           </p>
@@ -105,23 +121,23 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
+            {services.map((service) => (
               <div
                 key={service.title}
-                className="group p-8 rounded-3xl bg-zinc-950 border border-white/10 hover:border-indigo-500/50 transition-all duration-300"
+                className="p-8 rounded-2xl bg-zinc-50 border border-zinc-100 hover:border-orange-200 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <service.icon className="w-8 h-8 text-indigo-500" />
+                <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mb-6">
+                  <service.icon className="w-8 h-8 text-orange-500" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-zinc-400 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-semibold text-zinc-900 mb-4">{service.title}</h3>
+                <p className="text-zinc-500 mb-6">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm text-zinc-300">
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                    <li key={feature} className="flex items-center gap-2 text-sm text-zinc-600">
+                      <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                       {feature}
                     </li>
                   ))}
@@ -133,21 +149,21 @@ export default function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-zinc-950">
+      <section className="py-24 bg-zinc-50">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Process</h2>
+          <h2 className="text-4xl font-bold text-center mb-16 text-zinc-900">Our Process</h2>
           <div className="space-y-8">
             {[
               { step: "01", title: "Discover", desc: "We learn about your business, goals, and target audience." },
               { step: "02", title: "Strategy", desc: "We develop a customized plan to achieve your objectives." },
               { step: "03", title: "Execute", desc: "Our team implements the strategy with precision." },
               { step: "04", title: "Optimize", desc: "We continuously monitor and improve for maximum results." },
-            ].map((item, i) => (
+            ].map((item) => (
               <div key={item.step} className="flex gap-6 items-start">
-                <div className="text-4xl font-bold text-indigo-500/30">{item.step}</div>
+                <div className="text-4xl font-bold text-orange-500/30">{item.step}</div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-zinc-400">{item.desc}</p>
+                  <h3 className="text-xl font-semibold text-zinc-900 mb-2">{item.title}</h3>
+                  <p className="text-zinc-500">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -156,15 +172,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Get Started?</h2>
-          <p className="text-xl text-zinc-400 mb-8">
+          <h2 className="text-4xl font-bold mb-6 text-zinc-900">Ready to Get Started?</h2>
+          <p className="text-xl text-zinc-500 mb-8">
             Let's discuss how we can help you achieve your digital goals.
           </p>
           <a
             href="/contact"
-            className="inline-flex px-10 py-5 bg-indigo-600 hover:bg-indigo-500 rounded-full text-lg font-medium transition-colors"
+            className="inline-flex px-10 py-5 bg-orange-500 hover:bg-orange-600 text-white text-lg font-semibold rounded-full transition-all shadow-lg shadow-orange-500/25"
           >
             Schedule a Consultation
           </a>
